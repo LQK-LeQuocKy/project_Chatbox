@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng nhập | Men Fashion</title>
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="../assets/css/login.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="login-body">
+  <div class="login-page">
+    <div class="login-left">
+      <div class="login-badge">MEN FASHION STORE</div>
+
+      <h1>Đăng nhập hoặc tạo tài khoản để tiếp tục</h1>
+
+      <p class="login-desc">
+        Truy cập hệ thống Men Fashion để mua sắm, xem sản phẩm,
+        trò chuyện với chatbox và sử dụng các chức năng phù hợp với tài khoản của bạn.
+      </p>
+
+      <div class="login-features">
+        <div class="feature-card">
+          <span class="feature-number">01</span>
+          <div>
+            <h3>Đăng nhập nhanh</h3>
+            <p>Phân quyền rõ ràng giữa khách hàng và quản trị viên.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-number">02</span>
+          <div>
+            <h3>Đăng ký dễ dàng</h3>
+            <p>Tạo tài khoản mới chỉ với tên đăng nhập và mật khẩu.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-number">03</span>
+          <div>
+            <h3>Đồng bộ toàn website</h3>
+            <p>Phong cách sáng sạch, hiện đại, phù hợp giao diện các trang còn lại.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="login-right">
+      <div class="login-card">
+        <div class="login-card-top">
+          <div class="login-logo">
+            <img src="../img/logo/Men Fashion.jpg" alt="Men Fashion Logo" />
+          </div>
+
+          <div>
+            <p class="login-mini">Tài khoản Men Fashion</p>
+            <h2>Xin chào 👋</h2>
+          </div>
+        </div>
+
+        <p class="login-subtitle">
+          Đăng nhập nếu bạn đã có tài khoản hoặc đăng ký tài khoản mới ngay bên dưới
+        </p>
+
+        <div class="auth-tabs">
+          <button type="button" id="tabLogin" class="auth-tab active">Đăng nhập</button>
+          <button type="button" id="tabRegister" class="auth-tab">Đăng ký</button>
+        </div>
+
+        <div id="loginFormWrap" class="form-panel active">
+          <form id="loginForm" class="login-form">
+            <div class="form-group">
+              <label for="loginUsername">Tên đăng nhập</label>
+              <div class="input-wrap">
+                <span class="input-icon">👤</span>
+                <input
+                  type="text"
+                  id="loginUsername"
+                  placeholder="Nhập tên đăng nhập"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="loginPassword">Mật khẩu</label>
+              <div class="input-wrap password-wrap">
+                <span class="input-icon">🔒</span>
+                <input
+                  type="password"
+                  id="loginPassword"
+                  placeholder="Nhập mật khẩu"
+                  required
+                />
+                <button type="button" id="toggleLoginPassword" class="toggle-password">
+                  Hiện
+                </button>
+              </div>
+            </div>
+
+            <div class="login-options">
+              <label class="remember-box">
+                <input type="checkbox" id="rememberMe" />
+                <span>Ghi nhớ tài khoản</span>
+              </label>
+            </div>
+
+            <button type="submit" class="login-btn">Đăng nhập</button>
+            <p id="loginMessage" class="form-message"></p>
+          </form>
+        </div>
+
+        <div id="registerFormWrap" class="form-panel">
+          <form id="registerForm" class="login-form">
+            <div class="form-group">
+              <label for="registerFullName">Họ và tên</label>
+              <div class="input-wrap">
+                <span class="input-icon">🪪</span>
+                <input
+                  type="text"
+                  id="registerFullName"
+                  placeholder="Nhập họ và tên"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="registerUsername">Tên đăng nhập</label>
+              <div class="input-wrap">
+                <span class="input-icon">👤</span>
+                <input
+                  type="text"
+                  id="registerUsername"
+                  placeholder="Tạo tên đăng nhập"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="registerEmail">Email</label>
+              <div class="input-wrap">
+                <span class="input-icon">📧</span>
+                <input
+                  type="email"
+                  id="registerEmail"
+                  placeholder="Nhập email"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="registerPhone">Số điện thoại</label>
+              <div class="input-wrap">
+                <span class="input-icon">📱</span>
+                <input
+                  type="text"
+                  id="registerPhone"
+                  placeholder="Nhập số điện thoại"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="registerPassword">Mật khẩu</label>
+              <div class="input-wrap password-wrap">
+                <span class="input-icon">🔒</span>
+                <input
+                  type="password"
+                  id="registerPassword"
+                  placeholder="Tạo mật khẩu"
+                  required
+                />
+                <button type="button" id="toggleRegisterPassword" class="toggle-password">
+                  Hiện
+                </button>
+              </div>
+            </div>
+
+      <div class="form-group">
+        <label for="registerConfirmPassword">Nhập lại mật khẩu</label>
+        <div class="input-wrap password-wrap">
+          <span class="input-icon">🔒</span>
+          <input
+            type="password"
+            id="registerConfirmPassword"
+            placeholder="Nhập lại mật khẩu"
+            required
+          />
+          <button type="button" id="toggleConfirmPassword" class="toggle-password">
+            Hiện
+          </button>
+        </div>
+      </div>
+
+      <button type="submit" class="login-btn">Tạo tài khoản</button>
+      <p id="registerMessage" class="form-message"></p>
+    </form>
+    </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/login.js"></script>
+</body>
+</html>

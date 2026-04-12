@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbox | Men Fashion</title>
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="../assets/css/chat.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <div class="logo">
+        <img src="../img/logo/MF.png" alt="Men Fashion Logo" class="logo-img">
+        <span>MEN FASHION</span>
+      </div>
+      <nav class="nav-links">
+        <a href="TrangChu.html">Trang chủ</a>
+        <a href="SanPham.html">Sản phẩm</a>
+        <a href="contact.html">Liên hệ</a>
+        <br>
+        <a href="ChatBox.html" class="active">Chatbox</a>
+        <button id="themeToggleBtn" class="theme-toggle-btn" type="button">🌙</button>
+        <a href="DangNhap.html" id="loginNav">Đăng nhập</a>
+        <button id="logoutBtn" class="btn btn-dark hidden">Đăng xuất</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="chat-page">
+    <div class="chat-bg-glow glow-1"></div>
+    <div class="chat-bg-glow glow-2"></div>
+
+    <div class="container">
+      <div class="chat-hero">
+        <div class="chat-hero-content">
+          <span class="hero-badge">Hỗ trợ 24/7</span>
+          <h1>Trò chuyện cùng tư vấn viên thời trang nam</h1>
+          <p>
+            Hỏi nhanh về size, phối đồ, chất liệu, giao hàng và đổi trả.
+            Giao diện mới nổi bật hơn và có lưu lịch sử trò chuyện.
+          </p>
+        </div>
+      </div>
+
+      <div class="chat-layout">
+        <!-- Sidebar trái -->
+        <aside class="chat-sidebar">
+          <div class="sidebar-card history-chat">
+            <div class="sidebar-title-row ">
+              <h3>Lịch sử trò chuyện</h3>
+              <button class="mini-btn" id="newChatBtn" type="button">+ Chat mới</button>
+            </div>
+
+            <div class="history-list" id="historyList">
+              <!-- render bằng JS -->
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Hỗ trợ nhanh</h3>
+            <div class="quick-actions">
+              <button class="quick-btn" data-message="Tôi muốn tư vấn size" data-intent="size">Tư vấn size</button>
+              <button class="quick-btn" data-message="Shop có chính sách đổi trả thế nào?" data-intent="return">Đổi trả</button>
+              <button class="quick-btn" data-message="Phí giao hàng bao nhiêu?" data-intent="shipping">Giao hàng</button>
+              <button class="quick-btn" data-message="Gợi ý phối đồ cho tôi" data-intent="outfit">Phối đồ</button>
+              <button class="quick-btn" data-message="Tôi muốn gặp tư vấn viên" data-intent="human">Gặp tư vấn viên</button>
+            </div>
+          </div>
+
+        
+        </aside>
+
+        <!-- Phần chat chính -->
+        <section class="chat-main">
+          <div class="chat-header-box">
+            <div class="chat-header-left">
+             <div class="chat-avatar">
+                <img src="../img/logo/MF.png" alt="Men Fashion Logo">
+            </div>
+              <div>
+                <h2>Chat hỗ trợ khách hàng</h2>
+                <p>Bot hỗ trợ sản phẩm, size, phối đồ, giao hàng và đổi trả</p>
+              </div>
+            </div>
+
+            <div class="chat-header-actions">
+              <span class="status-badge">● Đang hoạt động</span>
+              <button class="outline-btn" id="clearCurrentChatBtn" type="button">Xóa đoạn chat</button>
+            </div>
+          </div>
+
+          <div class="chat-messages" id="chatMessages"></div>
+
+          <form class="chat-input-area" id="chatForm">
+            <textarea
+              id="chatInput"
+              rows="2"
+              placeholder="Nhập tin nhắn của bạn..."
+            ></textarea>
+            <button type="submit" class="btn btn-dark send-btn">Gửi</button>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="../assets/js/global.js"></script>
+  <script src="../assets/js/chat.js"></script>
+  <script src="../assets/js/product.js"></script>
+</body>
+</html>

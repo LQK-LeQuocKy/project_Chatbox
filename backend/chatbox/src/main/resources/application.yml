@@ -1,0 +1,34 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: mensfashion-shop
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/mensfashion_shop?useSSL=false&serverTimezone=Asia/Ho_Chi_Minh&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,flyway
+
+
+app:
+  jwt:
+    secret: 1234567890123456789012345678901234567890123456789012345678901234
+    expiration-ms: 86400000

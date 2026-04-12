@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trả lời khách hàng | Men Fashion Admin</title>
+  <link rel="stylesheet" href="../../assets/css/admin.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="sidebar-top">
+        <div class="admin-brand">
+          <div class="admin-brand-logo">MF</div>
+          <div>
+            <p class="brand-mini">MEN FASHION</p>
+            <h2>Admin Panel</h2>
+          </div>
+        </div>
+
+        <nav class="admin-menu">
+          <a href="dashboard.html" class="menu-item">Tổng quan</a>
+          <a href="users.html" class="menu-item">Quản lý user</a>
+          <a href="scripts.html" class="menu-item">Quản lý kịch bản chatbox</a>
+          <a href="conversations.html" class="menu-item">Quản lý hội thoại</a>
+          <a href="charts.html" class="menu-item">Biểu đồ</a>
+          <a href="replies.html" class="menu-item active">Trả lời khách hàng</a>
+        </nav>
+      </div>
+
+      <div class="sidebar-bottom">
+        <button class="logout-btn" onclick="authLogout()">Đăng xuất</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-header">
+        <div>
+          <p class="header-label">TRẢ LỜI KHÁCH HÀNG</p>
+          <h1>Hỗ trợ hội thoại trực tiếp</h1>
+          <p class="admin-header-desc">
+            Chọn một hội thoại để xem nội dung và gửi phản hồi trực tiếp với vai trò admin.
+          </p>
+        </div>
+
+        <div class="admin-profile">
+          <div class="profile-avatar">A</div>
+          <div>
+            <strong id="adminName">admin</strong>
+            <p id="adminRole">ADMIN</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="reply-layout">
+        <div class="admin-card reply-sidebar-card">
+          <div class="card-head">
+            <h3>Danh sách hội thoại</h3>
+            <span id="replyConversationCount">0 hội thoại</span>
+          </div>
+
+          <div class="toolbar">
+            <div class="toolbar-left">
+              <input
+                type="text"
+                id="replySearchConversation"
+                class="search-input"
+                placeholder="Tìm theo tên khách..."
+              />
+            </div>
+          </div>
+
+          <div id="replyConversationList" class="reply-conversation-list"></div>
+        </div>
+
+        <div class="admin-card reply-chat-card">
+          <div id="replyChatEmpty" class="reply-empty-state">
+            Chọn một hội thoại bên trái để bắt đầu trả lời khách hàng.
+          </div>
+
+          <div id="replyChatBox" class="reply-chat-box hidden">
+            <div class="reply-chat-header">
+              <div>
+                <h3 id="replyCustomerName">Khách hàng</h3>
+                <p id="replyConversationMeta">Đang theo dõi hội thoại</p>
+              </div>
+              <span id="replyStatusBadge" class="status-badge status-pending">Cần trả lời</span>
+            </div>
+
+            <div id="replyMessages" class="reply-messages"></div>
+
+            <form id="replyForm" class="reply-form">
+              <textarea
+                id="replyInput"
+                class="admin-textarea reply-textarea"
+                placeholder="Nhập phản hồi cho khách hàng..."
+                required
+              ></textarea>
+
+              <div class="form-actions">
+                <button type="submit" class="primary-btn">Gửi phản hồi</button>
+                <button type="button" class="secondary-btn" id="markDoneBtn">Đánh dấu đã xử lý</button>
+              </div>
+
+              <p id="replyMessage" class="admin-form-message"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../assets/js/auth.js"></script>
+  <script src="../../assets/js/admin/replies.js"></script>
+  <script>
+    requireAdmin();
+    renderAdminInfo();
+  </script>
+</body>
+</html>

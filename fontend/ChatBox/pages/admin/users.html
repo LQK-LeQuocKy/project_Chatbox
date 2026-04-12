@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản lý user | Men Fashion Admin</title>
+  <link rel="stylesheet" href="../../assets/css/admin.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="sidebar-top">
+        <div class="admin-brand">
+          <div class="admin-brand-logo">MF</div>
+          <div>
+            <p class="brand-mini">MEN FASHION</p>
+            <h2>Admin Panel</h2>
+          </div>
+        </div>
+
+        <nav class="admin-menu">
+          <a href="dashboard.html" class="menu-item">Tổng quan</a>
+          <a href="users.html" class="menu-item active">Quản lý user</a>
+          <a href="scripts.html" class="menu-item">Quản lý kịch bản chatbox</a>
+          <a href="conversations.html" class="menu-item">Quản lý hội thoại</a>
+          <a href="charts.html" class="menu-item">Biểu đồ</a>
+          <a href="replies.html" class="menu-item">Trả lời khách hàng</a>
+        </nav>
+      </div>
+
+      <div class="sidebar-bottom">
+        <button class="logout-btn" onclick="authLogout()">Đăng xuất</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-header">
+        <div>
+          <p class="header-label">QUẢN LÝ HỆ THỐNG</p>
+          <h1>Quản lý người dùng</h1>
+          <p class="admin-header-desc">
+            Theo dõi danh sách tài khoản, tìm kiếm nhanh và lọc theo role.
+          </p>
+        </div>
+
+        <div class="admin-profile">
+          <div class="profile-avatar">A</div>
+          <div>
+            <strong id="adminName">admin</strong>
+            <p id="adminRole">ADMIN</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="admin-card">
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <input
+              type="text"
+              id="searchUser"
+              class="search-input"
+              placeholder="Tìm theo tên đăng nhập..."
+            />
+          </div>
+
+          <div class="toolbar-right">
+            <select id="filterRole" class="filter-select">
+              <option value="ALL">Tất cả role</option>
+              <option value="ADMIN">ADMIN</option>
+              <option value="STAFF">STAFF</option>
+              <option value="CUSTOMER">CUSTOMER</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="user-table">
+            <thead>
+              <tr>
+                <th>Tên đăng nhập</th>
+                <th>Gmail</th>
+                <th>Role</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+              </tr>
+            </thead>
+            <tbody id="userTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../assets/js/auth.js"></script>
+  <script src="../../assets/js/admin/users.js"></script>
+  <script>
+    requireAdmin();
+    renderAdminInfo();
+  </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biểu đồ | Men Fashion Admin</title>
+  <link rel="stylesheet" href="../../assets/css/admin.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="sidebar-top">
+        <div class="admin-brand">
+          <div class="admin-brand-logo">MF</div>
+          <div>
+            <p class="brand-mini">MEN FASHION</p>
+            <h2>Admin Panel</h2>
+          </div>
+        </div>
+
+        <nav class="admin-menu">
+          <a href="dashboard.html" class="menu-item">Tổng quan</a>
+          <a href="users.html" class="menu-item">Quản lý user</a>
+          <a href="scripts.html" class="menu-item">Quản lý kịch bản chatbox</a>
+          <a href="conversations.html" class="menu-item">Quản lý hội thoại</a>
+          <a href="charts.html" class="menu-item active">Biểu đồ</a>
+          <a href="replies.html" class="menu-item">Trả lời khách hàng</a>
+        </nav>
+      </div>
+
+      <div class="sidebar-bottom">
+        <button class="logout-btn" onclick="authLogout()">Đăng xuất</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-header">
+        <div>
+          <p class="header-label">PHÂN TÍCH DỮ LIỆU</p>
+          <h1>Biểu đồ hệ thống</h1>
+          <p class="admin-header-desc">
+            Theo dõi nhanh người dùng, hội thoại và kịch bản chatbox bằng dữ liệu thực tế trong hệ thống.
+          </p>
+        </div>
+
+        <div class="admin-profile">
+          <div class="profile-avatar">A</div>
+          <div>
+            <strong id="adminName">admin</strong>
+            <p id="adminRole">ADMIN</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="stats-grid">
+        <div class="stat-card">
+          <p>Tổng người dùng</p>
+          <h3 id="chartTotalUsers">0</h3>
+          <span>Đếm từ danh sách tài khoản</span>
+        </div>
+
+        <div class="stat-card">
+          <p>Tổng kịch bản</p>
+          <h3 id="chartTotalScripts">0</h3>
+          <span>Đếm từ danh sách kịch bản</span>
+        </div>
+
+        <div class="stat-card">
+          <p>Tổng hội thoại</p>
+          <h3 id="chartTotalConversations">0</h3>
+          <span>Đếm từ dữ liệu hội thoại</span>
+        </div>
+
+        <div class="stat-card">
+          <p>Cần trả lời</p>
+          <h3 id="chartPendingConversations">0</h3>
+          <span>Hội thoại chưa xử lý</span>
+        </div>
+      </section>
+
+      <section class="charts-grid">
+        <div class="admin-card chart-card">
+          <div class="card-head">
+            <h3>Người dùng theo role</h3>
+            <span>ADMIN / CUSTOMER</span>
+          </div>
+          <div class="chart-box">
+            <canvas id="usersRoleChart"></canvas>
+          </div>
+        </div>
+
+        <div class="admin-card chart-card">
+          <div class="card-head">
+            <h3>Trạng thái hội thoại</h3>
+            <span>Pending / Done</span>
+          </div>
+          <div class="chart-box">
+            <canvas id="conversationStatusChart"></canvas>
+          </div>
+        </div>
+
+        <div class="admin-card chart-card chart-card-wide">
+          <div class="card-head">
+            <h3>Kịch bản theo danh mục</h3>
+            <span>Tư vấn size, giao hàng, đổi trả...</span>
+          </div>
+          <div class="chart-box">
+            <canvas id="scriptsCategoryChart"></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../../assets/js/auth.js"></script>
+  <script src="../../assets/js/admin/charts.js?v=2"></script>
+  <script>
+    requireAdmin();
+    renderAdminInfo();
+  </script>
+</body>
+</html>

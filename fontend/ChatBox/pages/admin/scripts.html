@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản lý kịch bản chatbox | Men Fashion Admin</title>
+  <link rel="stylesheet" href="../../assets/css/admin.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="sidebar-top">
+        <div class="admin-brand">
+          <div class="admin-brand-logo">MF</div>
+          <div>
+            <p class="brand-mini">MEN FASHION</p>
+            <h2>Admin Panel</h2>
+          </div>
+        </div>
+
+        <nav class="admin-menu">
+          <a href="dashboard.html" class="menu-item">Tổng quan</a>
+          <a href="users.html" class="menu-item">Quản lý user</a>
+          <a href="scripts.html" class="menu-item active">Quản lý kịch bản chatbox</a>
+          <a href="conversations.html" class="menu-item">Quản lý hội thoại</a>
+          <a href="charts.html" class="menu-item">Biểu đồ</a>
+          <a href="replies.html" class="menu-item">Trả lời khách hàng</a>
+        </nav>
+      </div>
+
+      <div class="sidebar-bottom">
+        <button class="logout-btn" onclick="authLogout()">Đăng xuất</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-header">
+        <div>
+          <p class="header-label">QUẢN LÝ KỊCH BẢN CHATBOX</p>
+          <h1>Danh sách kịch bản chatbot</h1>
+          <p class="admin-header-desc">
+            Thêm, chỉnh sửa và quản lý toàn bộ kịch bản phản hồi của chatbot.
+          </p>
+        </div>
+
+        <div class="admin-profile">
+          <div class="profile-avatar">A</div>
+          <div>
+            <strong id="adminName">admin</strong>
+            <p id="adminRole">ADMIN</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- KHỐI CHÍNH 2 CỘT -->
+      <section class="admin-two-column">
+        <!-- CỘT TRÁI: FORM KỊCH BẢN -->
+        <div class="admin-card script-form-card">
+          <div class="card-head">
+            <div>
+              <p class="section-label">CHATBOT SCRIPT FORM</p>
+              <h2>Thêm / chỉnh sửa kịch bản</h2>
+            </div>
+          </div>
+
+          <form id="scriptForm" class="script-form">
+            <input type="hidden" id="scriptId" />
+
+            <div class="form-group">
+              <label for="scriptTitle">Tiêu đề kịch bản</label>
+              <input
+                type="text"
+                id="scriptTitle"
+                class="form-input"
+                placeholder="Ví dụ: Tư vấn size áo sơ mi"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="scriptPattern">Mẫu câu hỏi</label>
+              <input
+                type="text"
+                id="scriptPattern"
+                class="form-input"
+                placeholder="Ví dụ: size áo sơ mi, tư vấn size sơ mi..."
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="scriptKeywords">Từ khóa</label>
+              <input
+                type="text"
+                id="scriptKeywords"
+                class="form-input"
+                placeholder="Ví dụ: size,sơ mi,áo sơ mi"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="scriptAnswer">Câu trả lời</label>
+              <textarea
+                id="scriptAnswer"
+                class="form-textarea"
+                rows="6"
+                placeholder="Nhập nội dung trả lời của chatbot..."
+              ></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="scriptScenarioType">Loại kịch bản</label>
+                <select id="scriptScenarioType" class="form-select">
+                  <option value="TEXT">TEXT</option>
+                  <option value="PRODUCT">PRODUCT</option>
+                  <option value="SUGGESTION">SUGGESTION</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="scriptScopeType">Phạm vi</label>
+                <select id="scriptScopeType" class="form-select">
+                  <option value="GENERAL">GENERAL</option>
+                  <option value="PRODUCT">PRODUCT</option>
+                  <option value="CATEGORY">CATEGORY</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group form-switch-row">
+              <label for="scriptActive">Trạng thái hoạt động</label>
+              <input type="checkbox" id="scriptActive" checked />
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="primary-btn">Lưu kịch bản</button>
+              <button type="button" class="secondary-btn" id="resetScriptFormBtn">Làm mới</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- CỘT PHẢI: DANH SÁCH KỊCH BẢN -->
+        <div class="admin-card script-list-card">
+          <div class="card-head">
+            <div>
+              <p class="section-label">CHATBOT SCRIPT LIST</p>
+              <h2>Tất cả kịch bản chatbox</h2>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <div class="toolbar-left">
+              <input
+                type="text"
+                id="searchScript"
+                class="search-input"
+                placeholder="Tìm tiêu đề, từ khóa, mẫu câu hỏi..."
+              />
+            </div>
+
+            <div class="toolbar-right">
+              <select id="filterScriptStatus" class="filter-select">
+                <option value="ALL">Tất cả</option>
+                <option value="ACTIVE">Đang hoạt động</option>
+                <option value="INACTIVE">Đã tắt</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="scriptList" class="script-list"></div>
+        </div>
+      </section>
+
+
+    </main>
+
+    <div id="duplicateModal" class="custom-modal hidden">
+      <div class="custom-modal-overlay"></div>
+      <div class="custom-modal-box">
+        <h3>Thông báo</h3>
+        <p id="duplicateModalMessage">
+          Kịch bản này đã có rồi. Bạn có muốn thêm này vào không?
+        </p>
+        <div class="custom-modal-actions">
+          <button id="confirmDuplicateBtn" class="primary-btn">Đồng ý</button>
+          <button id="cancelDuplicateBtn" class="secondary-btn">Hủy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/auth.js"></script>
+  <script src="../../assets/js/admin/scripts.js"></script>
+  <script>
+    requireAdmin();
+    renderAdminInfo();
+  </script>
+</body>
+</html>

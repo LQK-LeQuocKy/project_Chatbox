@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản lý hội thoại | Men Fashion Admin</title>
+  <link rel="stylesheet" href="../../assets/css/admin.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="sidebar-top">
+        <div class="admin-brand">
+          <div class="admin-brand-logo">MF</div>
+          <div>
+            <p class="brand-mini">MEN FASHION</p>
+            <h2>Admin Panel</h2>
+          </div>
+        </div>
+
+        <nav class="admin-menu">
+          <a href="dashboard.html" class="menu-item">Tổng quan</a>
+          <a href="users.html" class="menu-item">Quản lý user</a>
+          <a href="scripts.html" class="menu-item">Quản lý kịch bản chatbox</a>
+          <a href="conversations.html" class="menu-item active">Quản lý hội thoại</a>
+          <a href="charts.html" class="menu-item">Biểu đồ</a>
+          <a href="replies.html" class="menu-item">Trả lời khách hàng</a>
+        </nav>
+      </div>
+
+      <div class="sidebar-bottom">
+        <button class="logout-btn" onclick="authLogout()">Đăng xuất</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-header">
+        <div>
+          <p class="header-label">QUẢN LÝ HỘI THOẠI</p>
+          <h1>Danh sách hội thoại khách hàng</h1>
+          <p class="admin-header-desc">
+            Theo dõi các cuộc trò chuyện, trạng thái xử lý và những tin nhắn cần admin can thiệp.
+          </p>
+        </div>
+
+        <div class="admin-profile">
+          <div class="profile-avatar">A</div>
+          <div>
+            <strong id="adminName">admin</strong>
+            <p id="adminRole">ADMIN</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="conversation-stats-grid">
+        <div class="mini-stat-card">
+          <p>Tổng hội thoại</p>
+          <h3 id="conversationTotal">0</h3>
+        </div>
+
+        <div class="mini-stat-card">
+          <p>Hôm nay</p>
+          <h3 id="conversationToday">0</h3>
+        </div>
+
+        <div class="mini-stat-card">
+          <p>Cần trả lời</p>
+          <h3 id="conversationPending">0</h3>
+        </div>
+      </section>
+
+      <section class="admin-card">
+        <div class="card-head">
+          <div>
+            <p class="section-label">CUSTOMER CONVERSATIONS</p>
+            <h2>Danh sách hội thoại</h2>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <input
+              type="text"
+              id="searchConversation"
+              class="search-input"
+              placeholder="Tìm theo tên khách hoặc nội dung..."
+            />
+          </div>
+
+          <div class="toolbar-right">
+            <select id="filterConversationStatus" class="filter-select">
+              <option value="ALL">Tất cả trạng thái</option>
+              <option value="pending">Cần trả lời</option>
+              <option value="done">Đã xử lý</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="conversationList" class="conversation-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../assets/js/auth.js"></script>
+  <script src="../../assets/js/admin/conversations.js"></script>
+  <script>
+    requireAdmin();
+    renderAdminInfo();
+  </script>
+</body>
+</html>

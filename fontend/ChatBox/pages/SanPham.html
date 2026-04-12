@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sản phẩm | Men Fashion</title>
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="../assets/css/sanpham.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <div class="logo">
+          <img src="../img/logo/MF.png" alt="Men Fashion Logo" class="logo-img">
+          <span>MEN FASHION</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="TrangChu.html">Trang chủ</a>
+        <a href="SanPham.html" class="active">Sản phẩm</a>
+        <a href="contact.html">Liên hệ</a>
+        <br>
+        <a href="ChatBox.html">Chatbox</a>
+        <button id="themeToggleBtn" class="theme-toggle-btn" type="button">🌙</button>
+        <a href="DangNhap.html" id="loginNav">Đăng nhập</a>
+        <button id="logoutBtn" class="btn btn-dark hidden">Đăng xuất</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="products-page">
+    <section class="products-hero">
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+      <div class="hero-grid-pattern"></div>
+
+      <div class="container">
+        <div class="products-hero-layout">
+          <div class="products-hero-content">
+            <span class="page-label">MEN FASHION STORE</span>
+            <h1>Nâng tầm phong cách nam tính mỗi ngày</h1>
+            <p>
+              Khám phá các mẫu áo sơ mi, polo, quần, blazer, giày và cà vạt
+              với thiết kế hiện đại, dễ phối và phù hợp từ công sở đến dạo phố.
+            </p>
+
+            <div class="hero-action-row">
+              <a href="#productList" class="btn btn-dark">Xem sản phẩm</a>
+              <a href="ChatBox.html" class="btn btn-outline">Chat tư vấn</a>
+            </div>
+
+            <div class="hero-highlights">
+              <div class="hero-highlight-card">
+                <strong>42+</strong>
+                <span>Sản phẩm nổi bật</span>
+              </div>
+              <div class="hero-highlight-card">
+                <strong>6</strong>
+                <span>Danh mục đa dạng</span>
+              </div>
+              <div class="hero-highlight-card">
+                <strong>24/7</strong>
+                <span>Hỗ trợ qua chatbox</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-visual-bg"></div>
+
+            <div class="hero-image-box">
+              <img
+                src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=1000&q=80"
+                alt="Nam mẫu thời trang"
+              />
+            </div>
+
+            <div class="hero-floating-card hero-floating-card-top">
+              <span class="hero-card-label">Xu hướng mới</span>
+              <strong>Black & White Style</strong>
+              <p>Tối giản nhưng vẫn nổi bật</p>
+            </div>
+
+            <div class="hero-floating-card hero-floating-card-bottom">
+              <span class="hero-card-label">Tư vấn nhanh</span>
+              <strong>Size • Giá • Phối đồ</strong>
+              <p>Hỗ trợ ngay qua chatbox</p>
+            </div>
+
+            <div class="hero-shape hero-shape-1"></div>
+            <div class="hero-shape hero-shape-2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="filter-panel">
+          <div class="filter-top">
+            <div class="filter-title-box">
+              <h2>Bộ lọc sản phẩm</h2>
+              <p>Lọc nhanh theo tên, danh mục và khoảng giá</p>
+            </div>
+            <div class="result-count" id="resultCount">0 sản phẩm</div>
+          </div>
+
+          <div class="filter-grid">
+            <div class="filter-group">
+              <label for="searchInput">Tìm sản phẩm</label>
+              <input type="text" id="searchInput" placeholder="Nhập tên sản phẩm..." />
+            </div>
+
+            <div class="filter-group">
+              <label for="categoryFilter">Danh mục</label>
+              <select id="categoryFilter">
+                <option value="all">Tất cả danh mục</option>
+                <option value="shirt">Áo sơ mi</option>
+                <option value="polo">Áo polo</option>
+                <option value="pants">Quần</option>
+                <option value="blazer">Blazer</option>
+                <option value="shoes">Giày</option>
+                <option value="tie">Cà vạt</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="priceFilter">Khoảng giá</label>
+              <select id="priceFilter">
+                <option value="all">Tất cả mức giá</option>
+                <option value="under300">Dưới 300.000đ</option>
+                <option value="300to500">300.000đ - 500.000đ</option>
+                <option value="500to800">500.000đ - 800.000đ</option>
+                <option value="over800">Trên 800.000đ</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="sortFilter">Sắp xếp</label>
+              <select id="sortFilter">
+                <option value="default">Mặc định</option>
+                <option value="priceAsc">Giá tăng dần</option>
+                <option value="priceDesc">Giá giảm dần</option>
+                <option value="nameAsc">Tên A-Z</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-grid" id="productList"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="product-modal hidden" id="productModal">
+    <div class="product-modal-overlay" id="productModalOverlay"></div>
+
+    <div class="product-modal-content">
+      <button class="modal-close-btn" id="closeModalBtn" type="button">&times;</button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="../assets/js/global.js"></script>
+  <script src="../assets/js/chat.js"></script>
+  <script src="../assets/js/product.js"></script>
+</body>
+</html>

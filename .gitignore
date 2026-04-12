@@ -1,0 +1,18 @@
+# IntelliJ
+.idea/
+*.iml
+
+# Java / Spring Boot
+chatbox/target/
+chatbox/.mvn/wrapper/maven-wrapper.jar
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (nếu frontend có)
+fontend/node_modules/
+fontend/dist/
